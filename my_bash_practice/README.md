@@ -34,3 +34,6 @@ S=Ttotal​Tpass​​×100%
     Тестирование (make test): Запуск pytest для проверки корректности работы самих алгоритмов парсинга.
 
     Сборка (make build): Автоматизированная упаковка проекта в дистрибутивы .tar.gz и .whl с использованием модуля build.
+
+
+Ссылка на GitHub: https://github.com/Albert21210/Development_culture.git
