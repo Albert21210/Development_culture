@@ -1,20 +1,15 @@
 # TODO refactor this module using buisness logic names
 
 
-def _row(x):
-    # x is one line from file
-    p = x.strip().split(",")  # split by comma
-    if len(p) != 4:  # if line is bad
-        return None  # return nothing
+def _parse_record(line: str) -> dict | None:
+    """Parse data from one sale record.
 
-    n = p[0]  # product name
-    c = p[1]  # product category
-    a = float(p[2])  # price of one item
-    q = int(p[3])  # amount of items
+    Parameters:
+        line: record on one sale that come from file
 
-    return {"n": n, "c": c, "a": a, "q": q}  # make dict
-
-def _parse_record(line: str):
+    Returns:
+        Date of one sale in form of dict or None if validation fails
+    """
     sale = line.strip().split(",") 
     if len(sale) != 4:  # according to specs each line must have 4 columns
         return None 
@@ -22,13 +17,15 @@ def _parse_record(line: str):
 
     try:
         price = float(price) 
-    except:
+    except ValueError:
         return None
+    
     try:
         amount = int(amount)  # according to specs amount is not fractional
         if amount != int(amount):
             return None
-    except:
+        
+    except ValueError:
         return None
 
     return {"product": product, "category": category, "price": price, "amount": amount} 
