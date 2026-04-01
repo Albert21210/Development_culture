@@ -20,12 +20,10 @@ def _parse_record(line: str):
         return None 
     (product, category, price, amount) = sale
 
-    n = p[0]  # product name
-    c = p[1]  # product category
-    a = float(p[2])  # price of one item
-    q = int(p[3])  # amount of items
+    price = float(price) 
+    amount = int(amount)  # according to specs amount is not fractional
 
-    return {"n": n, "c": c, "a": a, "q": q}  # make dict
+    return {"product": product, "category": category, "price": price, "amount": amount} 
 
 
 def read_data(path):
