@@ -6,17 +6,17 @@ def _parse_record(line: str) -> dict | None:
 
     Parameters:
         line: record on one sale that come from file
-
+    
     Returns:
-        Date of one sale in form of dict or None if validation fails
+        Data of one sale in form of dict or None if validation fails
     """
     sale = line.strip().split(",") 
     if len(sale) != 4:  # according to specs each line must have 4 columns
-        return None 
+        return None  
     (product, category, price, amount) = sale
 
     try:
-        price = float(price) 
+        price = float(price)  
     except ValueError:
         return None
     
@@ -30,12 +30,11 @@ def _parse_record(line: str) -> dict | None:
 
     return {"product": product, "category": category, "price": price, "amount": amount} 
 
-
 def read_data(path):
     res = []  # final list
     with open(path, "r", encoding="utf-8") as f:  # open file
         for x in f:  # go over lines
-            r = _row(x)  # convert line to dict
+            r = _parse_record(x)  # convert line to dict
             if r is not None:  # if parsing was ok
                 res.append(r)  # add to result
     return res  # return result
