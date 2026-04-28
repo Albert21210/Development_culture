@@ -1,0 +1,7 @@
+requests
+fastapi
+numpy
+mypy
+flake8
+black
+pip-check-reqs
