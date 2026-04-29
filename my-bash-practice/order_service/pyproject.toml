@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "order-service"
-version = "0.0.1"
+version = "0.0.2"
 description = "Application for serving users orders"
 authors = ["Albert"]
 license = "MIT"
